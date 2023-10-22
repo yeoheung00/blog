@@ -40,7 +40,7 @@ export default function Page() {
         });
         setTags(tagArray);
         setLoad(true);
-    }, []);
+    }, [postsList]);
     const handlerTagChanged = (e: ChangeEvent<HTMLInputElement>) => {
         setSelectedTag(e.target.value);
     }

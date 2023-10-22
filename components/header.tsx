@@ -33,7 +33,7 @@ export default function Header() {
     return (
         <div className="fixed w-full h-12 bg-[var(--color-pre)]">
             <div className="h-12 max-w-5xl mx-auto flex justify-between items-center px-4">
-                <Link className="text-xl font-black text-[var(--color-primary-accent)]" href='/'>MinK's Blog</Link>
+                <Link className="text-xl font-black text-[var(--color-primary-accent)]" href='/'>MinK&apos;s Blog</Link>
                 <div className="flex gap-x-5 items-center">
                     <button onClick={handleToggle}>{darkTheme?"Dark ":"Light "}theme</button>
                     <Link className="font-bold text-[var(--color-primary-accent)]" href='/posts'>Post</Link>
