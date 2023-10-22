@@ -22,10 +22,10 @@ function PostCard(post: Post) {
 }
 
 export default function Page() {
+    const postsList = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
     const [load, setLoad] = useState(false);
     const [tags, setTags] = useState<string[]>([]);
     const [selectedTag, setSelectedTag] = useState("전체");
-    const postsList = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
     const posts: Post[] = useMemo(() => {
         if (selectedTag === "전체") return postsList;
         const postsTemp = postsList.filter((post) => post.tag.split(" ").includes(selectedTag));
