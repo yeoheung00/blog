@@ -46,7 +46,7 @@ export default function Page() {
     }
     return (
         <main className="w-full min-h-screen pt-20">
-            <div className='max-w-5xl mx-auto'>
+            <div className='max-w-5xl mx-auto px-4'>
                 <h2>태그</h2>
                 <div className="w-fill flex gap-4 flex-wrap">
                     <div className="h-fit">
