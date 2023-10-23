@@ -31,13 +31,13 @@ export default function Header() {
         setDarkTheme(initialColorValue === "dark");
     }, []);
     return (
-        <div className="fixed w-full h-12 bg-[var(--color-pre)]">
-            <div className="h-12 max-w-5xl mx-auto flex justify-between items-center px-4">
-                <Link className="text-xl font-black text-[var(--color-primary-accent)]" href='/'>MinK&apos;s Blog</Link>
-                <div className="flex gap-x-5 items-center">
+        <div className="fixed w-full h-16 bg-[var(--color-pre)]">
+            <div className="h-16 max-w-5xl mx-auto flex justify-between items-center px-4">
+                <Link className="text-3xl font-black text-[var(--color-primary-accent)]" href='/'>MinK&apos;s Blog</Link>
+                <div className="flex gap-x-8 items-center">
                     <button onClick={handleToggle}>{darkTheme?"Dark":"Light"}</button>
-                    <Link className="font-bold text-[var(--color-primary-accent)]" href='/posts'>Post</Link>
-                    <Link className="font-bold text-[var(--color-primary-accent)]" href='/projects'>Projects</Link>
+                    <Link className="font-bold text-[var(--color-primary-accent)] text-2xl" href='/posts'>Post</Link>
+                    <Link className="font-bold text-[var(--color-primary-accent)] text-2xl" href='/projects'>Projects</Link>
                 </div>
             </div>
         </div>

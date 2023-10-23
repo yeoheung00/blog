@@ -1,0 +1,12 @@
+[
+  {
+    "name": "KNU-Exhibiton",
+    "url": "https://knu-exhibition-dev.vercel.app",
+    "des": "공주대 디자인컨버전스학과의 16번째 졸업전시 PIECE OF CAKE의 온라인 전시입니다."
+  },
+  {
+    "name": "Guitar Tuner",
+    "url": "https://guitar-tuner.vercel.app",
+    "des": "웹페이지에서 마이크로 기타소리를 가져와 튜닝할 수 있게 해줍니다. 기타 튜닝이 아니더라도 A0 ~ C8 범위 소리의 높낮이를 알 수 있습니다."
+  }
+]
