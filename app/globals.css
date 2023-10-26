@@ -17,6 +17,7 @@
 }
 
 :root {
+  scroll-behavior: smooth;
   --color-primary-accent: #ff7a3c;
   --color-primary: #181818;
   --color-button: #ff7a3c;
@@ -31,7 +32,7 @@
   --color-primary-accent: #ff7a3c;
   --color-primary: #fff;
   --color-button: #ff7a3c;
-  --color-paragraph: #bbbbbb;
+  --color-paragraph: #dfdfdf;
   --color-button-text: rgb(0, 0, 0);
   --color-background: #313131;
   --color-pre: #635149;

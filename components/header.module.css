@@ -1,0 +1,63 @@
+.theme{
+    width: 40px;
+    height: 40px;
+    mask-image: url('/icons/light.svg');
+    mask-size: 40px;
+    background-color: var(--color-paragraph);
+}
+
+[data-theme='dark'] .theme{
+    width: 40px;
+    height: 40px;
+    mask-image: url('/icons/dark.svg');
+    mask-size: 40px;
+    background-color: var(--color-paragraph);
+
+}
+
+@media screen and (min-width: 1024px) {
+    .opener {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        gap: 8px;
+        position: relative;
+        flex-direction: row;
+    }
+
+    .nav a{
+        padding: 0 8px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+
+    .opener {   
+        width: 40px;
+        height: 40px;
+        mask-image: url('/icons/hamburger.svg');
+        mask-size: 40px;
+        background-color: var(--color-paragraph);
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: absolute;
+        top: 72px;
+        right: 8px;
+    }
+
+    .nav.active a {
+        background-color: var(--color-pre);
+        border-radius: 8px;
+        padding: 8px 16px;
+    }
+}

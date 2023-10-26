@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react";
+import styles from './header.module.css'
 
 export default function Header() {
     const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
@@ -20,6 +21,9 @@ export default function Header() {
                 window.localStorage.setItem("theme", "light");
             }
         }
+        window.addEventListener("resize", () => {
+            setIsOpen(false);
+        });
     }, [darkTheme]);
 
     useEffect(() => {
@@ -30,14 +34,23 @@ export default function Header() {
 
         setDarkTheme(initialColorValue === "dark");
     }, []);
+
+    const [isOpen, setIsOpen] = useState(false);
+    const handlerMenuOpen = () => setIsOpen(true);
+    const handlerMenuClose = () => setIsOpen(false);
+    const handlerMenuToggle = () => setIsOpen(prev => !prev);
+
     return (
-        <div className="fixed w-full h-16 bg-[var(--color-pre)]">
+        <div className="fixed top-0 w-full h-16 bg-[var(--color-pre)] z-50">
             <div className="h-16 max-w-5xl mx-auto flex justify-between items-center px-4">
                 <Link className="text-3xl font-black text-[var(--color-primary-accent)]" href='/'>MinK&apos;s Blog</Link>
                 <div className="flex gap-x-8 items-center">
-                    <button onClick={handleToggle}>{darkTheme?"Dark":"Light"}</button>
-                    <Link className="font-bold text-[var(--color-primary-accent)] text-2xl" href='/posts'>Post</Link>
-                    <Link className="font-bold text-[var(--color-primary-accent)] text-2xl" href='/projects'>Projects</Link>
+                    <button className={styles.theme} onClick={handleToggle}></button>
+                    <button className={styles.opener} onClick={handlerMenuToggle}></button>
+                    <div className={`${styles.nav} ${isOpen ? styles.active : null}`}>
+                        <Link className="font-bold text-[var(--color-paragraph)] text-2xl" href='/posts' onClick={handlerMenuClose}>Post</Link>
+                        <Link className="font-bold text-[var(--color-paragraph)] text-2xl" href='/projects' onClick={handlerMenuClose}>Projects</Link>
+                    </div>
                 </div>
             </div>
         </div>
