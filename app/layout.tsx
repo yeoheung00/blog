@@ -26,8 +26,7 @@ export default function RootLayout({
     function getInitialColorMode() {
       // 로컬스토리지에서 'theme' 값 가져오기
       const persistedPreferenceMode = window.localStorage.getItem("theme");
-      const hasPersistedPreference =
-        typeof persistedPreferenceMode === "string";
+      const hasPersistedPreference = typeof persistedPreferenceMode === "string";
 
       if (hasPersistedPreference) {
         return persistedPreferenceMode;
