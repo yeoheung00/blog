@@ -18,53 +18,44 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const themeInitializerScript = `(function() {
-    ${setInitialColorMode.toString()}
-    setInitialColorMode();
-  })()
-  `;
 
-  // 초기 테마를 설정하는 함수
-  function setInitialColorMode() {
-    function getInitialColorMode() {
-      // 로컬스토리지에서 'theme' 값 가져오기
-      const persistedPreferenceMode = window.localStorage.getItem("theme");
-      const hasPersistedPreference =
-        typeof persistedPreferenceMode === "string";
+  function setColorsByTheme() {
+    const persistedPreference = window.localStorage.getItem("theme");
+    const hasUsedToggle = typeof persistedPreference === 'string';
+    
+    
+    const preference = window.matchMedia("(prefers-color-scheme: dark)");
+    const hasMediaQueryPreference = typeof preference.matches === "boolean";
 
-      if (hasPersistedPreference) {
-        return persistedPreferenceMode;
-      }
-
-      const preference = window.matchMedia("(prefers-color-scheme: dark)");
-      const hasMediaQueryPreference = typeof preference.matches === "boolean";
-
-      if (hasMediaQueryPreference) {
-        return preference.matches ? "dark" : "light";
-      }
-
-      return "light";
+    let colorMode = 'dark';
+    
+    if (hasUsedToggle) {
+      colorMode = persistedPreference; 
+    } else if(hasMediaQueryPreference){
+      colorMode = preference.matches ? "dark" : "light";
     }
 
-    //현재 테마 모드
-    const currentColorMode = getInitialColorMode();
-    const element = document.body;
-    element.style.setProperty("--initial-color-mode", currentColorMode);
+    const root = document.body;
 
-    // 현재 다크모드라면 다크모드를 바로 적용 시켜줌
-    if (currentColorMode === "dark")
-      document.body.setAttribute("data-theme", "dark");
+    root.style.setProperty("--initial-color-mode", colorMode);
+
+    if (colorMode === "dark") root.setAttribute("data-theme", "dark");
   }
+
+
+  const ScriptTag = () => {
+    const stringifyFn = String(setColorsByTheme);
+  
+    const fnToRunOnClient = `(${stringifyFn})()`;
+  
+    return <script dangerouslySetInnerHTML={{ __html: fnToRunOnClient }} />;
+  };
 
 
   return (
     <html lang="kr">
       <body className={inter.className}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: themeInitializerScript,
-          }}
-        ></script>
+        <ScriptTag />
         <Header />
         {children}
       </body>
