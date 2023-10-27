@@ -1,10 +1,10 @@
 'use client'
 
 import Link from "next/link"
-import { useEffect, useState } from "react";
-import styles from './header.module.css'
+import { useEffect, useState, MouseEvent } from "react";
 
 export default function Header() {
+
     const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
 
     const handleToggle = () => {
@@ -15,15 +15,12 @@ export default function Header() {
         if (darkTheme !== undefined) {
             if (darkTheme) {
                 document.body.setAttribute("data-theme", "dark");
-                window.localStorage.setItem("mink-theme", "dark");
+                window.localStorage.setItem("theme", "dark");
             } else {
                 document.body.removeAttribute("data-theme");
-                window.localStorage.setItem("mink-theme", "light");
+                window.localStorage.setItem("theme", "light");
             }
         }
-        window.addEventListener("resize", () => {
-            setIsOpen(false);
-        });
     }, [darkTheme]);
 
     useEffect(() => {
@@ -45,9 +42,9 @@ export default function Header() {
             <div className="h-16 max-w-5xl mx-auto flex justify-between items-center px-4">
                 <Link className="text-3xl font-black text-[var(--color-primary-accent)]" href='/'>MinK&apos;s Blog</Link>
                 <div className="flex gap-x-8 items-center">
-                    <button className={styles.theme} onClick={handleToggle}></button>
-                    <button className={styles.opener} onClick={handlerMenuToggle}></button>
-                    <div className={`${styles.nav} ${isOpen ? styles.active : null}`}>
+                    <button onClick={handleToggle}>theme</button>
+                    <button onClick={handlerMenuToggle}>menu</button>
+                    <div >
                         <Link className="font-bold text-[var(--color-paragraph)] text-2xl" href='/posts' onClick={handlerMenuClose}>Post</Link>
                         <Link className="font-bold text-[var(--color-paragraph)] text-2xl" href='/projects' onClick={handlerMenuClose}>Projects</Link>
                     </div>

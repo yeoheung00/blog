@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
+import { cookies } from 'next/headers'
+import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +17,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   const themeInitializerScript = `(function() {
     ${setInitialColorMode.toString()}
     setInitialColorMode();
@@ -25,8 +28,9 @@ export default function RootLayout({
   function setInitialColorMode() {
     function getInitialColorMode() {
       // 로컬스토리지에서 'theme' 값 가져오기
-      const persistedPreferenceMode = window.localStorage.getItem("mink-theme");
-      const hasPersistedPreference = typeof persistedPreferenceMode === "string";
+      const persistedPreferenceMode = window.localStorage.getItem("theme");
+      const hasPersistedPreference =
+        typeof persistedPreferenceMode === "string";
 
       if (hasPersistedPreference) {
         return persistedPreferenceMode;
@@ -51,6 +55,8 @@ export default function RootLayout({
     if (currentColorMode === "dark")
       document.body.setAttribute("data-theme", "dark");
   }
+
+
   return (
     <html lang="kr">
       <body className={inter.className}>
