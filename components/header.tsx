@@ -15,10 +15,10 @@ export default function Header() {
         if (darkTheme !== undefined) {
             if (darkTheme) {
                 document.body.setAttribute("data-theme", "dark");
-                window.localStorage.setItem("theme", "dark");
+                window.localStorage.setItem("mink-theme", "dark");
             } else {
                 document.body.removeAttribute("data-theme");
-                window.localStorage.setItem("theme", "light");
+                window.localStorage.setItem("mink-theme", "light");
             }
         }
         window.addEventListener("resize", () => {
