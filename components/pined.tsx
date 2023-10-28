@@ -40,24 +40,24 @@ export default function Pined() {
     .filter((post) => post.tag.includes('고정'))
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
-  const handlerPrev = () => {
-    if (posts.length > 1) {
-      const temp = current - 1;
-      setCurrent(temp < 0 ? posts.length - 1 : temp);
-    }
-  };
+  // const handlerPrev = () => {
+  //   if (posts.length > 1) {
+  //     const temp = current - 1;
+  //     setCurrent(temp < 0 ? posts.length - 1 : temp);
+  //   }
+  // };
 
-  const handlerNext = () => {
-    if (posts.length > 1) {
-      const temp = current + 1;
-      setCurrent(temp >= posts.length ? 0 : temp);
-    }
-  };
+  // const handlerNext = () => {
+  //   if (posts.length > 1) {
+  //     const temp = current + 1;
+  //     setCurrent(temp >= posts.length ? 0 : temp);
+  //   }
+  // };
 
   return (
     <div>
       <div className="flex">
-        <div className="flex items-center px-4" onClick={handlerPrev}>
+        {/* <div className="flex items-center px-4" onClick={handlerPrev}>
           <div
             className="w-12"
             style={{
@@ -71,11 +71,11 @@ export default function Pined() {
               backgroundColor: 'var(--color-paragraph)',
             }}
           />
-        </div>
+        </div> */}
         {posts.map((post, idx) => (
           <PinedPost key={idx} index={idx} current={current} post={post} />
         ))}
-        <div className="flex items-center px-4" onClick={handlerNext}>
+        {/* <div className="flex items-center px-4" onClick={handlerNext}>
           <div
             className="w-12"
             style={{
@@ -89,7 +89,7 @@ export default function Pined() {
               backgroundColor: 'var(--color-paragraph)',
             }}
           />
-        </div>
+        </div> */}
       </div>
       <div className="flex gap-4 justify-center py-4">
         {posts.map((post, idx) => (
