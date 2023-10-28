@@ -1,64 +1,49 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Header from '@/components/header'
-import { cookies } from 'next/headers'
-import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/header';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'MinK Blog',
-  description: 'MinK\'s blog..',
-}
+  description: "MinK's blog..",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function docLayout({ children }: { children: React.ReactNode }) {
+  function getThemeFromLocalStorage() {
+    const theme = window.localStorage.getItem('theme');
+    const isThemeExiest = typeof theme === 'string';
 
+    const preference = window.matchMedia('(prefers-color-scheme: dark)');
+    const isPreferenceExiest = typeof preference.matches === 'boolean';
 
-  function setColorsByTheme() {
-    const persistedPreference = window.localStorage.getItem("theme");
-    const hasUsedToggle = typeof persistedPreference === 'string';
-    
-    
-    const preference = window.matchMedia("(prefers-color-scheme: dark)");
-    const hasMediaQueryPreference = typeof preference.matches === "boolean";
+    let theme_state = 'light';
 
-    let colorMode = 'dark';
-    
-    if (hasUsedToggle) {
-      colorMode = persistedPreference; 
-    } else if(hasMediaQueryPreference){
-      colorMode = preference.matches ? "dark" : "light";
+    if (isThemeExiest) {
+      theme_state = theme;
+    } else if (isPreferenceExiest) {
+      theme_state = preference.matches ? 'dark' : 'light';
     }
 
-    const root = document.body;
+    const doc = document.body;
 
-    root.style.setProperty("--initial-color-mode", colorMode);
+    doc.style.setProperty('--initial-color-mode', theme_state);
 
-    if (colorMode === "dark") root.setAttribute("data-theme", "dark");
+    if (theme_state === 'dark') doc.setAttribute('data-theme', 'dark');
   }
-
-
-  const ScriptTag = () => {
-    const stringifyFn = String(setColorsByTheme);
-  
-    const fnToRunOnClient = `(${stringifyFn})()`;
-  
-    return <script dangerouslySetInnerHTML={{ __html: fnToRunOnClient }} />;
-  };
-
 
   return (
     <html lang="kr">
       <body className={inter.className}>
-        <ScriptTag />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(${String(getThemeFromLocalStorage)})()`,
+          }}
+        />
         <Header />
         {children}
       </body>
     </html>
-  )
+  );
 }

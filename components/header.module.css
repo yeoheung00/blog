@@ -43,21 +43,31 @@
     }
 
     .nav {
-        display: none;
+        position: absolute;
+        top: 64px;
+        right: 8px;
+        height: 0px;
+        overflow: hidden;
     }
 
+
     .nav.active {
+        height: 108px;
+    }
+
+    .navwrap{
         display: flex;
         flex-direction: column;
         gap: 8px;
-        position: absolute;
-        top: 72px;
-        right: 8px;
+        height: fit-content;
+        z-index: 100;
     }
 
-    .nav.active a {
+    .nav a {
         background-color: var(--color-pre);
         border-radius: 8px;
-        padding: 8px 16px;
+        padding: 0 16px;
+        height: 50px;
+        line-height: 50px;
     }
 }
