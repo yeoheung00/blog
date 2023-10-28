@@ -18,24 +18,28 @@
 
 :root {
   scroll-behavior: smooth;
-  --color-primary-accent: #ff7a3c;
+  --color-primary-accent: #8551ff;
   --color-primary: #181818;
-  --color-button: #ff7a3c;
+  --color-glass-morphism: #ffffff77;
+  --color-button: #8551ff;
   --color-paragraph: #2b2b2b;
   --color-button-text: rgb(0, 0, 0);
   --color-background: #ffffff;
-  --color-pre: #ffe2d4;
+  --color-card: #e6e6e6;
+  --color-pre: #b696ff;
   --color-link: #5d5dff;
 }
 
 [data-theme='dark'] {
-  --color-primary-accent: #ff7a3c;
+  --color-primary-accent: #8551ff;
   --color-primary: #fff;
-  --color-button: #ff7a3c;
+  --color-glass-morphism: #00000077;
+  --color-button: #8551ff;
   --color-paragraph: #dfdfdf;
   --color-button-text: rgb(0, 0, 0);
-  --color-background: #313131;
-  --color-pre: #635149;
+  --color-background: #352f42;
+  --color-card: #524966;
+  --color-pre: #3d217e;
   --color-link: #9494ff;
 }
 

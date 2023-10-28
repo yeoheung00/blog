@@ -37,7 +37,7 @@ export default function Header() {
   const handlerMenuToggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="fixed top-0 w-full h-14 bg-[var(--color-pre)] z-50">
+    <div className="fixed top-0 w-full h-14 z-50 bg-[--color-background]">
       <div className="h-14 max-w-5xl mx-auto flex justify-between items-center px-4">
         <Link
           className="text-2xl font-black text-[var(--color-primary-accent)]"
@@ -46,11 +46,12 @@ export default function Header() {
           MinK&apos;s Blog
         </Link>
         <div className="flex gap-x-4 items-center">
-          <button onClick={handleToggle}>theme</button>
-          <button
-            className={styles.opener}
-            onClick={handlerMenuToggle}
-          ></button>
+          <button className={styles.theme} onClick={handleToggle}>
+            <div className={styles.themeIcon} />
+          </button>
+          <button className={styles.opener} onClick={handlerMenuToggle}>
+            <div className={styles.openIcon} />
+          </button>
           <div className={`${styles.nav} ${isOpen ? styles.active : null}`}>
             <div className={styles.navwrap}>
               <Link

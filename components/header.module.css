@@ -1,18 +1,27 @@
 .theme{
-    width: 40px;
-    height: 40px;
-    mask-image: url('/icons/light.svg');
-    mask-size: 40px;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    padding: 0;
+}
+
+.themeIcon{
+    width: 36px;
+    height: 36px;
+    margin: 6px;
+    mask-image: url('/icons/light_fill.svg');
+    mask-size: 36px;
     background-color: var(--color-paragraph);
 }
 
-[data-theme='dark'] .theme{
-    width: 40px;
-    height: 40px;
-    mask-image: url('/icons/dark.svg');
-    mask-size: 40px;
-    background-color: var(--color-paragraph);
 
+[data-theme='dark'] .themeIcon{
+    width: 36px;
+    height: 36px;
+    margin: 6px;
+    mask-image: url('/icons/dark_fill.svg');
+    mask-size: 36px;
+    background-color: var(--color-paragraph);
 }
 
 @media screen and (min-width: 1024px) {
@@ -35,10 +44,18 @@
 @media screen and (max-width: 1023px) {
 
     .opener {   
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .openIcon {
+        margin: 6px;
+        width: 36px;
+        height: 36px;
         mask-image: url('/icons/hamburger.svg');
-        mask-size: 40px;
+        mask-size: 36px;
         background-color: var(--color-paragraph);
     }
 

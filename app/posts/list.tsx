@@ -4,24 +4,7 @@ import { Post, allPosts } from '@/.contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import { ChangeEvent, useEffect, useMemo, useState } from 'react';
-
-function PostCard(post: Post) {
-  return (
-    <div className="w-[calc(50%-0.5rem)]">
-      <h2 className="mb-1 text-xl">
-        <Link href={post.url} className="text-[var(--color-paragraph)]">
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs">
-        {format(parseISO(post.date), 'yyyy. MM. d. a h : mm')}
-      </time>
-      <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0">
-        {post.summary}
-      </div>
-    </div>
-  );
-}
+import PostCard from '@/components/PostCard';
 
 export default function List() {
   const postsList = allPosts.sort((a, b) =>
