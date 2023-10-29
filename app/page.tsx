@@ -6,16 +6,10 @@ import { compareDesc } from 'date-fns';
 import PostCard from '@/components/PostCard';
 import ProjectCard from '@/components/ProjectCard';
 import allProjects from 'db/projects.json';
+import RecentPosts from '@/components/recentPosts';
+import RecentProjects from '@/components/recentProjets';
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-  const recentPosts = posts.length > 4 ? posts.slice(0, 4) : posts;
-
-  const projects = allProjects.sort();
-  const recentProjects = projects.length > 4 ? projects.slice(0, 4) : projects;
-
   console.log('is SSR?');
 
   return (
@@ -28,29 +22,9 @@ export default function Home() {
         <Pined />
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 mb-28">
-        <div className="flex items-center justify-between">
-          <h2>최근 포스트</h2>
-          <Link href="/posts">더보기</Link>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          {recentPosts.map((post, idx) => (
-            <PostCard key={idx} {...post} />
-          ))}
-        </div>
-      </div>
+      <RecentPosts />
 
-      <div className="max-w-5xl mx-auto px-4 mb-28">
-        <div className="flex items-center justify-between">
-          <h2>최근 프로젝트</h2>
-          <Link href="/projects">더보기</Link>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          {recentProjects.map((project, idx) => (
-            <ProjectCard key={idx} {...project} />
-          ))}
-        </div>
-      </div>
+      <RecentProjects />
     </main>
   );
 }
