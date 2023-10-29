@@ -16,6 +16,8 @@ export default function Home() {
   const projects = allProjects.sort();
   const recentProjects = projects.length > 4 ? projects.slice(0, 4) : projects;
 
+  console.log('is SSR?');
+
   return (
     <main className="w-full min-h-screen pt-20">
       <div className="max-w-5xl mx-auto px-4 mb-28">
@@ -44,7 +46,7 @@ export default function Home() {
           <Link href="/projects">더보기</Link>
         </div>
         <div className="flex flex-wrap gap-4">
-          {projects.map((project, idx) => (
+          {recentProjects.map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>

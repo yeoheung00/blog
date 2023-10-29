@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  html{
+  --color-primary-accent: #8551ff;
+  --color-primary: #181818;
+  --color-glass-morphism: #ffffff77;
+  --color-button: #8551ff;
+  --color-paragraph: #2b2b2b;
+  --color-button-text: rgb(0, 0, 0);
+  --color-background: #ffffff;
+  --color-card: #e6e6e6;
+  --color-pre: #b696ff;
+  --color-link: #5d5dff;
+  }
+
+  html.dark {
+    --color-primary-accent: #8551ff;
+    --color-primary: #fff;
+    --color-glass-morphism: #00000077;
+    --color-button: #8551ff;
+    --color-paragraph: #dfdfdf;
+    --color-button-text: rgb(0, 0, 0);
+    --color-background: #352f42;
+    --color-card: #524966;
+    --color-pre: #3d217e;
+    --color-link: #9494ff;
+  }
+}
+
 @font-face {
   font-family: 'SUIT-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
@@ -16,32 +45,6 @@
   font-style: normal;
 }
 
-:root {
-  scroll-behavior: smooth;
-  --color-primary-accent: #8551ff;
-  --color-primary: #181818;
-  --color-glass-morphism: #ffffff77;
-  --color-button: #8551ff;
-  --color-paragraph: #2b2b2b;
-  --color-button-text: rgb(0, 0, 0);
-  --color-background: #ffffff;
-  --color-card: #e6e6e6;
-  --color-pre: #b696ff;
-  --color-link: #5d5dff;
-}
-
-[data-theme='dark'] {
-  --color-primary-accent: #8551ff;
-  --color-primary: #fff;
-  --color-glass-morphism: #00000077;
-  --color-button: #8551ff;
-  --color-paragraph: #dfdfdf;
-  --color-button-text: rgb(0, 0, 0);
-  --color-background: #352f42;
-  --color-card: #524966;
-  --color-pre: #3d217e;
-  --color-link: #9494ff;
-}
 
 *{
   padding: 0;
