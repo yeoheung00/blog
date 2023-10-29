@@ -151,6 +151,6 @@ time{
   color: var(--color-paragraph);
 }
 
-.utterances{
+.utterances, .utterances-frame{
   max-width: 100%;
 }

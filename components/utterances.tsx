@@ -8,7 +8,7 @@ const Utterances: React.FC = () => {
 
   return (
     <section
-      className="mx-auto"
+      className="mx-auto mt-32"
       ref={(elem) => {
         if (!elem) {
           return;
@@ -16,7 +16,7 @@ const Utterances: React.FC = () => {
         const scriptElem = document.createElement('script');
         scriptElem.src = 'https://utteranc.es/client.js';
         scriptElem.async = true;
-        scriptElem.setAttribute('repo', 'yeoheung00/mink-comments');
+        scriptElem.setAttribute('repo', 'yeoheung00/mink-blog');
         scriptElem.setAttribute('issue-term', 'pathname');
         scriptElem.setAttribute('theme', utterances_theme);
         scriptElem.setAttribute('label', 'blog-comment');
