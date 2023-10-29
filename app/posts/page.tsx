@@ -9,8 +9,8 @@ export default function Page() {
   const postsList = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
-  const [load, setLoad] = useState(false);
-  const [tags, setTags] = useState<string[]>([]);
+
+  const [tags, setTags] = useState<{ [k: string]: number }>({});
   const [selectedTag, setSelectedTag] = useState('전체');
   const posts: Post[] = useMemo(() => {
     if (selectedTag === '전체') return postsList;
@@ -21,18 +21,20 @@ export default function Page() {
   }, [selectedTag]);
 
   useEffect(() => {
-    let tagArray: string[] = [];
-    postsList.forEach((tags) => {
-      tags.tag.split(' ').forEach((tag) => {
-        if (!tagArray.includes(tag)) tagArray.push(tag);
+    let temp_tags: { [k: string]: number } = {};
+    postsList.forEach((post) => {
+      post.tag.split(' ').forEach((tag) => {
+        if (!Object.keys(temp_tags).includes(tag)) temp_tags[tag] = 0;
+        temp_tags[tag]++;
       });
     });
-    setTags(tagArray);
-    setLoad(true);
+    setTags(temp_tags);
   }, [postsList]);
+
   const handlerTagChanged = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedTag(e.target.value);
   };
+
   return (
     <div className="max-w-5xl mx-auto px-4 pt-20">
       <h2>태그</h2>
@@ -45,9 +47,9 @@ export default function Page() {
             checked={selectedTag === '전체'}
             onChange={handlerTagChanged}
           ></input>
-          <label htmlFor="all">전체</label>
+          <label htmlFor="all">전체({postsList.length})</label>
         </div>
-        {tags.map((tag, idx) => (
+        {Object.keys(tags).map((tag, idx) => (
           <div key={idx}>
             <input
               type="radio"
@@ -56,12 +58,14 @@ export default function Page() {
               checked={selectedTag === tag}
               onChange={handlerTagChanged}
             ></input>
-            <label htmlFor={tag}>{tag}</label>
+            <label htmlFor={tag}>
+              {tag}({tags[tag]})
+            </label>
           </div>
         ))}
       </div>
       <h2>글 목록</h2>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-x-8 gap-y-16">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}

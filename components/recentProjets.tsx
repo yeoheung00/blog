@@ -18,7 +18,7 @@ export default function RecentProjects() {
         <h2>최근 프로젝트</h2>
         <Link href="/projects">더보기</Link>
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-x-8 gap-y-16">
         {recentProjects.map((project, idx) => (
           <ProjectCard key={idx} {...project} />
         ))}

@@ -8,7 +8,7 @@ type Project = {
 
 export default function ProjectCard(project: Project) {
   return (
-    <div className="w-[calc(50%-0.5rem)]">
+    <div className="lg:w-[calc(50%-1rem)] w-full">
       <h2 className="mb-1 text-xl">
         <Link
           href={project.url}
