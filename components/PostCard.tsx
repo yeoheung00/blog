@@ -14,7 +14,7 @@ export default function PostCard(post: Post) {
         alt={post.title}
       />
       <time dateTime={post.date} className="text-xs mt-4">
-        {format(parseISO(post.date), 'yyyy. MM. d. a h : mm')}
+        {format(parseISO(post.date), 'yyyy. MM. d. a hh : mm')}
       </time>
       <h2 className="mb-1 text-2xl m-0 p-0 leading-none">
         <div className="text-[var(--color-paragraph)]">{post.title}</div>
