@@ -13,15 +13,15 @@
   --color-button-text: rgb(0, 0, 0);
   --color-background: #ffffff;
   --color-card: #e6e6e6;
-  --color-pre: #b696ff;
+  --color-pre: #d2bfff;
   --color-link: #5d5dff;
   }
 
   html.dark {
-    --color-primary-accent: #8551ff;
+    --color-primary-accent: #9f76ff;
     --color-primary: #fff;
     --color-glass-morphism: #00000077;
-    --color-button: #8551ff;
+    --color-button: #9f76ff;
     --color-paragraph: #dfdfdf;
     --color-button-text: rgb(0, 0, 0);
     --color-background: #352f42;

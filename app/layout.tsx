@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header';
 import ThemeProviders from 'components/provider';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -63,6 +64,7 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
         <ThemeProviders>
           <Header />
           {children}
+          <Analytics />
         </ThemeProviders>
       </body>
     </html>
