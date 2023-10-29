@@ -6,21 +6,21 @@
 }
 
 .themeIcon{
-    width: 36px;
-    height: 36px;
-    margin: 6px;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
     mask-image: url('/icons/light_fill.svg');
-    mask-size: 36px;
+    mask-size: 32px;
     background-color: var(--color-paragraph);
 }
 
 
 [data-theme='dark'] .themeIcon{
-    width: 36px;
-    height: 36px;
-    margin: 6px;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
     mask-image: url('/icons/dark_fill.svg');
-    mask-size: 36px;
+    mask-size: 32px;
     background-color: var(--color-paragraph);
 }
 
@@ -51,11 +51,11 @@
     }
 
     .openIcon {
-        margin: 6px;
-        width: 36px;
-        height: 36px;
+        margin: 8px;
+        width: 32px;
+        height: 32px;
         mask-image: url('/icons/hamburger.svg');
-        mask-size: 36px;
+        mask-size: 32px;
         background-color: var(--color-paragraph);
     }
 
@@ -81,7 +81,7 @@
     }
 
     .nav a {
-        background-color: var(--color-pre);
+        background-color: var(--color-card);
         border-radius: 8px;
         padding: 0 16px;
         height: 50px;
