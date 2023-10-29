@@ -28,7 +28,6 @@ const PinedPost = ({
         <time dateTime={post.date} className="mb-2 block text-xs">
           {format(parseISO(post.date), 'yyyy. MM. d. a h : mm')}
         </time>
-        <p>{post.summary}</p>
       </div>
     </div>
   );
