@@ -151,6 +151,20 @@ time{
   color: var(--color-paragraph);
 }
 
+.markdown img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(200, 200, 200, 1);
+  margin: 1rem 0;
+}
+
+ol{
+  list-style: decimal;
+  margin-left: 1rem;
+}
+
 .utterances, .utterances-frame{
   max-width: 100%;
 }

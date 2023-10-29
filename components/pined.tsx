@@ -2,6 +2,7 @@
 
 import { Post, allPosts } from '@/.contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const PinedPost = ({
@@ -14,7 +15,8 @@ const PinedPost = ({
   post: Post;
 }) => {
   return (
-    <div
+    <Link
+      href={post.url}
       className="w-full h-auto bg-[var(--color-card)] overflow-hidden relative"
       style={{
         display: current === index ? 'block' : 'none',
@@ -29,7 +31,7 @@ const PinedPost = ({
           {post.title}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

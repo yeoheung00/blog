@@ -27,7 +27,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         </time>
         <h1 className="text-3xl font-bold">{post.title}</h1>
       </div>
-      <div className="relative">
+      <div className="relative markdown">
         <Content components={{ ImageViewer }} />
       </div>
       <Utterances />
