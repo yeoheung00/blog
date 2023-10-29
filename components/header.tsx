@@ -23,7 +23,24 @@ export default function Header() {
     }
   }, [darkTheme]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme');
+    const isThemeExiest = typeof theme === 'string';
+
+    console.log('exist', theme, isThemeExiest);
+
+    const preference = window.matchMedia('(prefers-color-scheme: dark)');
+    const isPreferenceExiest = typeof preference.matches === 'boolean';
+
+    if (isThemeExiest) {
+      window.document.body.setAttribute('data-theme', theme);
+    } else if (isPreferenceExiest) {
+      window.document.body.setAttribute(
+        'data-theme',
+        preference.matches ? 'dark' : 'light'
+      );
+    }
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
   const handlerMenuClose = () => setIsOpen(false);

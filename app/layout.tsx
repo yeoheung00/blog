@@ -36,7 +36,7 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="kr">
       <body className={inter.className}>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               const theme = window.localStorage.getItem('theme');
@@ -58,7 +58,7 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
               }
             `,
           }}
-        />
+        /> */}
         <Header />
         {children}
       </body>
