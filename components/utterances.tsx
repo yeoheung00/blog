@@ -16,7 +16,7 @@ const Utterances: React.FC = () => {
         const scriptElem = document.createElement('script');
         scriptElem.src = 'https://utteranc.es/client.js';
         scriptElem.async = true;
-        scriptElem.setAttribute('repo', 'cpro95/utterances_mycodings_fly_dev');
+        scriptElem.setAttribute('repo', 'yeoheung00/mink-comments');
         scriptElem.setAttribute('issue-term', 'pathname');
         scriptElem.setAttribute('theme', utterances_theme);
         scriptElem.setAttribute('label', 'blog-comment');
