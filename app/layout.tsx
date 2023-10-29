@@ -42,6 +42,8 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
               const theme = window.localStorage.getItem('theme');
               const isThemeExiest = typeof theme === 'string';
 
+              console.log('exist', theme,  isThemeExiest)
+
               const preference = window.matchMedia('(prefers-color-scheme: dark)');
               const isPreferenceExiest = typeof preference.matches === 'boolean';
 
@@ -55,9 +57,9 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
 
               const doc = document.body;
 
-              doc.style.setProperty('--initial-color-mode', theme_state);
-
               if (theme_state === 'dark') doc.setAttribute('data-theme', 'dark');
+
+              doc.style.setProperty('--initial-color-mode', theme_state);
             `,
           }}
         />
