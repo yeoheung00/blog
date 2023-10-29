@@ -23,14 +23,7 @@ export default function Header() {
     }
   }, [darkTheme]);
 
-  useEffect(() => {
-    const root = window.document.body;
-    const initialColorValue = root.style.getPropertyValue(
-      '--initial-color-mode'
-    );
-
-    setDarkTheme(initialColorValue === 'dark');
-  }, []);
+  useEffect(() => {}, []);
 
   const [isOpen, setIsOpen] = useState(false);
   const handlerMenuClose = () => setIsOpen(false);
