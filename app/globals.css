@@ -150,3 +150,7 @@ button{
 time{
   color: var(--color-paragraph);
 }
+
+.utterances{
+  max-width: 100%;
+}
