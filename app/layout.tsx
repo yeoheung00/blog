@@ -50,16 +50,12 @@ export default function docLayout({ children }: { children: React.ReactNode }) {
               let theme_state = 'light';
 
               if (isThemeExiest) {
-                theme_state = theme;
+                document.body.setAttribute('data-theme', theme);
+                document.body.style.setProperty('--initial-color-mode', theme);
               } else if (isPreferenceExiest) {
-                theme_state = preference.matches ? 'dark' : 'light';
+                document.body.setAttribute('data-theme', preference.matches ? 'dark' : 'light');
+                document.body.style.setProperty('--initial-color-mode', preference.matches ? 'dark' : 'light');
               }
-
-              const doc = document.body;
-
-              if (theme_state === 'dark') doc.setAttribute('data-theme', 'dark');
-
-              doc.style.setProperty('--initial-color-mode', theme_state);
             `,
           }}
         />
