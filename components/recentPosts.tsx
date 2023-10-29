@@ -22,7 +22,7 @@ export default function RecentPosts() {
         <h2>최근 포스트</h2>
         <Link href="/posts">더보기</Link>
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-8">
         {recentPosts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}

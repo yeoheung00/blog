@@ -10,7 +10,6 @@ export const Post = defineDocumentType(() => ({
     fields: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
-        summary: { type: 'string', required: true },
         tag: { type: 'string', required: true },
         thumbnail: { type: 'string', default: '/posts/default.png'}
     },

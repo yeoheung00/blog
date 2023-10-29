@@ -19,6 +19,7 @@ export default function Page() {
     );
     return postsTemp;
   }, [selectedTag]);
+
   useEffect(() => {
     let tagArray: string[] = [];
     postsList.forEach((tags) => {
