@@ -1,17 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
+
 import allProjects from 'db/projects.json';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 
 export default function RecentProjects() {
-  type ProjectType = (typeof allProjects)[0];
-  const [recentProjects, setRecentProjects] = useState<ProjectType[]>([]);
   const projects = allProjects.sort();
+  const recentProjects = projects.length > 4 ? projects.slice(0, 4) : projects;
 
-  useEffect(() => {
-    setRecentProjects(projects.length > 4 ? projects.slice(0, 4) : projects);
-  }, []);
   return (
     <div className="max-w-5xl mx-auto px-4 mb-28">
       <div className="flex items-center justify-between">
