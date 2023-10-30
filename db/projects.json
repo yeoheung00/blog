@@ -8,5 +8,10 @@
     "name": "Guitar Tuner",
     "url": "https://guitar-tuner.vercel.app",
     "des": "웹페이지에서 마이크로 기타소리를 가져와 튜닝할 수 있게 해줍니다. 기타 튜닝이 아니더라도 A0 ~ C8 범위 소리의 높낮이를 알 수 있습니다."
+  },
+  {
+    "name": "2023 KoSEA 정기학술대회 포스터",
+    "url": "https://2023-kosea-academic-conference.vercel.app",
+    "des": "2023년 한국국제미술교육학회에서 주최하는 학술대회를 소개하는 포스터를 인터랙티브하게 웹을 활용하여 제작하였습니다."
   }
 ]
