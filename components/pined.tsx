@@ -25,7 +25,7 @@ const PinedPost = ({
       <img src={post.thumbnail} alt={post.thumbnail} />
       <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
         <time dateTime={post.date} className="text-xs mb-2">
-          {format(parseISO(post.date), 'yyyy. MM. d. a h : mm')}
+          {format(new Date(post.date), 'yyyy. MM. dd. a hh:mm')}
         </time>
         <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
           {post.title}

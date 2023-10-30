@@ -13,8 +13,8 @@ export default function PostCard(post: Post) {
         src={post.thumbnail}
         alt={post.title}
       />
-      <time dateTime={post.date} className="text-xs mt-4">
-        {format(parseISO(post.date), 'yyyy. MM. dd. a hh:mm')}
+      <time dateTime={post.date} className="text-xs mt-2">
+        {format(new Date(post.date), 'yyyy. MM. dd. a hh:mm')}
       </time>
       <h2 className="mb-1 text-2xl m-0 p-0 leading-none">
         <div className="text-[var(--color-paragraph)]">{post.title}</div>
