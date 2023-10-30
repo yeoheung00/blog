@@ -3,7 +3,7 @@
 import { Post, allPosts } from '@/.contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 const PinedPost = ({
   index,
@@ -14,6 +14,8 @@ const PinedPost = ({
   current: number;
   post: Post;
 }) => {
+  let thumbnail = '/posts/default.png';
+  if(thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
   return (
     <Link
       href={post.url}
@@ -22,10 +24,10 @@ const PinedPost = ({
         display: current === index ? 'block' : 'none',
       }}
     >
-      <img src={post.thumbnail} alt={post.thumbnail} />
+      <img src={thumbnail} alt={post.title} />
       <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
         <time dateTime={post.date} className="text-xs mb-2">
-          {format(new Date(post.date), 'yyyy. MM. dd. a hh:mm')}
+          {format(parseISO(post.date), 'yyyy. MM. dd. a hh:mm')}
         </time>
         <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
           {post.title}

@@ -3,6 +3,8 @@ import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 
 export default function PostCard(post: Post) {
+  let thumbnail = '/posts/default.png';
+  if(thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
   return (
     <Link
       href={post.url}
@@ -10,7 +12,7 @@ export default function PostCard(post: Post) {
     >
       <img
         className="w-full h-auto rounded-xl"
-        src={post.thumbnail}
+        src={thumbnail}
         alt={post.title}
       />
       <time dateTime={post.date} className="text-xs mt-2">
