@@ -36,7 +36,7 @@ export default function Page() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 pt-20">
+    <main className="max-w-5xl mx-auto px-4 pt-20">
       <h2>태그</h2>
       <div className="w-fill flex gap-4 flex-wrap">
         <div className="h-fit">
@@ -70,6 +70,6 @@ export default function Page() {
           <PostCard key={idx} {...post} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }
