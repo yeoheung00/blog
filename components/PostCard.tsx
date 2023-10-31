@@ -1,5 +1,6 @@
 import { Post } from '@/.contentlayer/generated';
-import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz';
+import { parseISO } from 'date-fns';
+import { format as timeZoneFormat, toDate } from 'date-fns-tz';
 import Link from 'next/link';
 
 export default function PostCard(post: Post) {
@@ -16,7 +17,7 @@ export default function PostCard(post: Post) {
         alt={post.title}
       />
       <time dateTime={post.date} className="text-xs mt-2">
-        {formatInTimeZone(utcToZonedTime(post.date, 'Asia/Seoul'), 'Asia/Seoul', 'yyyy. MM. dd. a hh:mm')}
+        {timeZoneFormat(toDate(parseISO(post.date), { timeZone: 'Asia/Seoul' }), 'yyyy. MM. dd. a hh:mm', { timeZone: 'Asia/Seoul' })}
       </time>
       <h2 className="mb-1 text-2xl m-0 p-0 leading-none">
         <div className="text-[var(--color-paragraph)]">{post.title}</div>

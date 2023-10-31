@@ -1,8 +1,8 @@
 'use client';
 
 import { Post, allPosts } from '@/.contentlayer/generated';
-import { compareDesc } from 'date-fns';
-import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz';
+import { compareDesc, parseISO } from 'date-fns';
+import { format as timeZoneFormat, toDate } from 'date-fns-tz';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -28,7 +28,7 @@ const PinedPost = ({
       <img src={thumbnail} alt={post.title} />
       <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
         <time dateTime={post.date} className="text-xs mb-2">
-          {formatInTimeZone(utcToZonedTime(post.date, 'Asia/Seoul'), 'Asia/Seoul', 'yyyy. MM. dd. a hh:mm')}
+          {timeZoneFormat(toDate(parseISO(post.date), { timeZone: 'Asia/Seoul' }), 'yyyy. MM. dd. a hh:mm', { timeZone: 'Asia/Seoul' })}
         </time>
         <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
           {post.title}
