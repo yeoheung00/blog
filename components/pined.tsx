@@ -1,7 +1,8 @@
 'use client';
 
 import { Post, allPosts } from '@/.contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { compareDesc } from 'date-fns';
+import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -15,7 +16,7 @@ const PinedPost = ({
   post: Post;
 }) => {
   let thumbnail = '/posts/default.png';
-  if(thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
+  if (thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
   return (
     <Link
       href={post.url}
@@ -27,7 +28,7 @@ const PinedPost = ({
       <img src={thumbnail} alt={post.title} />
       <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
         <time dateTime={post.date} className="text-xs mb-2">
-          {format(parseISO(post.date), 'yyyy. MM. dd. a hh:mm')}
+          {formatInTimeZone(utcToZonedTime(post.date, 'Asia/Seoul'), 'Asia/Seoul', 'yyyy. MM. dd. a hh:mm')}
         </time>
         <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
           {post.title}

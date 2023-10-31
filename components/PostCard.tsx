@@ -1,10 +1,10 @@
 import { Post } from '@/.contentlayer/generated';
-import { format, parseISO } from 'date-fns';
+import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz';
 import Link from 'next/link';
 
 export default function PostCard(post: Post) {
   let thumbnail = '/posts/default.png';
-  if(thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
+  if (thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
   return (
     <Link
       href={post.url}
@@ -16,7 +16,7 @@ export default function PostCard(post: Post) {
         alt={post.title}
       />
       <time dateTime={post.date} className="text-xs mt-2">
-        {format(parseISO(post.date), 'yyyy. MM. dd. a hh:mm')}
+        {formatInTimeZone(utcToZonedTime(post.date, 'Asia/Seoul'), 'Asia/Seoul', 'yyyy. MM. dd. a hh:mm')}
       </time>
       <h2 className="mb-1 text-2xl m-0 p-0 leading-none">
         <div className="text-[var(--color-paragraph)]">{post.title}</div>
