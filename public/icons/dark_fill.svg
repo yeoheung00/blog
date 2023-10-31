@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><style>.cls-1{fill:none;}.cls-1,.cls-2{stroke-width:0px;}.cls-2{fill:#1d1d1b;}</style></defs><g id="Layer_1-2"><path class="cls-2" d="m34,28c-7.73,0-14-6.27-14-14,0-3.91,1.61-7.45,4.2-9.99-.07,0-.13-.01-.2-.01C12.95,4,4,12.95,4,24s8.95,20,20,20,20-8.95,20-20c0-.07,0-.13-.01-.2-2.54,2.59-6.08,4.2-9.99,4.2Z"/><rect class="cls-1" width="48" height="48"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <rect class="cls-1" width="48" height="48"/>
+      <path class="cls-2" d="m34,28c-7.73,0-14-6.27-14-14,0-3.91,1.61-7.45,4.2-9.99-.07,0-.13-.01-.2-.01C12.95,4,4,12.95,4,24s8.95,20,20,20,20-8.95,20-20c0-.07,0-.13-.01-.2-2.54,2.59-6.08,4.2-9.99,4.2Z"/>
+      <rect class="cls-2" x="31" y="10" width="10" height="4" rx="2" ry="2"/>
+      <rect class="cls-2" x="31" y="10" width="10" height="4" rx="2" ry="2" transform="translate(48 -24) rotate(90)"/>
+    </g>
+  </g>
+</svg>

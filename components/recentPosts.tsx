@@ -10,8 +10,8 @@ export default function RecentPosts() {
   const recentPosts = posts.length > 4 ? posts.slice(0, 4) : posts;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 mb-28">
-      <div className="flex items-center justify-between">
+    <div className="mb-8">
+      <div className="flex items-center justify-between px-2">
         <h2>최근 포스트</h2>
         <Link href="/posts">더보기</Link>
       </div>

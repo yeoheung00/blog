@@ -8,8 +8,8 @@ export default function RecentProjects() {
   const recentProjects = projects.length > 4 ? projects.slice(0, 4) : projects;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 mb-28">
-      <div className="flex items-center justify-between">
+    <div className="mb-8">
+      <div className="flex items-center justify-between px-2">
         <h2>최근 프로젝트</h2>
         <Link href="/projects">더보기</Link>
       </div>
