@@ -17,6 +17,9 @@ const PinedPost = ({
 }) => {
   let thumbnail = '/posts/default.png';
   if (thumbnail !== post.thumbnail) thumbnail = `${post.url}/${post.thumbnail}`
+  console.log('date', post.date);
+  const date = timeZoneFormat(toDate(parseISO(post.date), { timeZone: 'Asia/Seoul' }), 'yyyy. MM. dd. a hh:mm', { timeZone: 'Asia/Seoul' });
+  console.log('format', date);
   return (
     <Link
       href={post.url}
@@ -28,7 +31,7 @@ const PinedPost = ({
       <img src={thumbnail} alt={post.title} />
       <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
         <time dateTime={post.date} className="text-xs mb-2">
-          {timeZoneFormat(toDate(parseISO(post.date), { timeZone: 'Asia/Seoul' }), 'yyyy. MM. dd. a hh:mm', { timeZone: 'Asia/Seoul' })}
+          {date}
         </time>
         <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
           {post.title}
