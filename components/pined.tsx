@@ -23,17 +23,17 @@ const PinedPost = ({
   return (
     <Link
       href={post.url}
-      className="w-full h-auto bg-[var(--color-card)] overflow-hidden relative"
+      className="w-full h-auto bg-[--color-surface-container] overflow-hidden relative"
       style={{
         display: current === index ? 'block' : 'none',
       }}
     >
       <img src={thumbnail} alt={post.title} />
-      <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-glass-morphism]">
+      <div className="py-2 px-4 absolute w-full bottom-0 bg-[--color-surface-container]">
         <time dateTime={post.date} className="text-xs mb-2">
           {date}
         </time>
-        <div className="text-2xl font-bold text-[var(--color-primary-accent)]">
+        <div className="text-2xl font-bold text-[var(--color-primary)]">
           {post.title}
         </div>
       </div>
@@ -62,8 +62,8 @@ export default function Pined() {
               width: '16px',
               height: '16px',
               backgroundColor:
-                idx === current ? 'var(--color-primary-accent)' : 'transparent',
-              border: '1px solid var(--color-primary-accent)',
+                idx === current ? 'var(--color-primary)' : 'transparent',
+              border: '1px solid var(--color-primary)',
               borderRadius: '4px',
             }}
             onClick={() => {

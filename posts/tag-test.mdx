@@ -18,8 +18,7 @@ thumbnail: thumbnail.png
 
 결과적으로 나온 예시는 다음과 같다.
 
-```typescript
-/* 생성 */
+```typescript:생성
 let tags: { [k: string]: number } = {};
 postsList.forEach((post) => {
   post.tag.split(" ").forEach((tag) => {
@@ -29,8 +28,7 @@ postsList.forEach((post) => {
 });
 ```
 
-```typescript
-/* 결과 */
+```typescript:결과
 tags = {
   코딩: 1,
   일상: 1,

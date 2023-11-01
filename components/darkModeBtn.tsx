@@ -15,27 +15,27 @@ export default function DarkModeBtn() {
       {currentTheme === 'dark' ? (
         <div
           style={{
-            width: '36px',
-            height: '36px',
-            margin: '6px',
+            width: '24px',
+            height: '24px',
+            margin: '12px',
             maskImage: "url('/icons/dark_fill.svg')",
-            maskSize: '36px',
+            maskSize: '24px',
             WebkitMaskImage: "url('/icons/dark_fill.svg')",
-            WebkitMaskSize: '36px',
-            backgroundColor: 'var(--color-paragraph)',
+            WebkitMaskSize: '24px',
+            backgroundColor: 'var(--color-surface-on)',
           }}
         ></div>
       ) : (
         <div
           style={{
-            width: '36px',
-            height: '36px',
-            margin: '6px',
+            width: '24px',
+            height: '24px',
+            margin: '12px',
             maskImage: "url('/icons/dark_fill.svg')",
-            maskSize: '36px',
+            maskSize: '24px',
             WebkitMaskImage: "url('/icons/light_fill.svg')",
-            WebkitMaskSize: '36px',
-            backgroundColor: 'var(--color-paragraph)',
+            WebkitMaskSize: '24px',
+            backgroundColor: 'var(--color-surface-on)',
           }}
         ></div>
       )}

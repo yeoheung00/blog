@@ -13,7 +13,7 @@ export default function Footer() {
               maskSize: '24px',
               WebkitMaskImage: "url('/icons/github-mark.svg')",
               WebkitMaskSize: '24px',
-              backgroundColor: 'var(--color-paragraph)',
+              backgroundColor: 'var(--color-surface-on)',
             }}
           />
         </Link>
@@ -26,7 +26,7 @@ export default function Footer() {
               maskSize: '24px',
               WebkitMaskImage: "url('/icons/Instagram_Glyph_Black.svg')",
               WebkitMaskSize: '24px',
-              backgroundColor: 'var(--color-paragraph)',
+              backgroundColor: 'var(--color-surface-on)',
             }}
           />
         </Link>

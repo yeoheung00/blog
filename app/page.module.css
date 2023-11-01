@@ -1,8 +1,8 @@
-.pinIcon{
+.pinIcon {
   display: inline-block;
   width: 24px;
   height: 24px;
   mask-image: url('/icons/pin_fill.svg');
   mask-size: 24px;
-  background-color: var(--color-paragraph);
+  background-color: var(--color-surface-on);
 }

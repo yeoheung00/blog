@@ -37,8 +37,8 @@ export default function Page() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 pt-20">
-      <h2>태그</h2>
-      <div className="w-fill flex gap-4 flex-wrap">
+      <h2 className='font-bold text-[--color-primary] mb-2'>태그</h2>
+      <div className="w-fill flex gap-4 flex-wrap mb-8">
         <div className="h-fit">
           <input
             type="radio"
@@ -64,7 +64,7 @@ export default function Page() {
           </div>
         ))}
       </div>
-      <h2>글 목록</h2>
+      <h2 className='font-bold text-[--color-primary] mb-2'>글 목록</h2>
       <div className="flex flex-wrap gap-x-8 gap-y-16">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />

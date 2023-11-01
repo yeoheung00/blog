@@ -10,7 +10,7 @@ export default function Home() {
         <div className="mb-8">
           <div className="flex items-center mb-2 justify-center">
             <div className={styles.pinIcon} />
-            <p>고정된 포스트</p>
+            <p className='text-[--color-surface-on]'>고정된 포스트</p>
           </div>
           <Pined />
         </div>

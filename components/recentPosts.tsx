@@ -11,9 +11,9 @@ export default function RecentPosts() {
 
   return (
     <div className="mb-8">
-      <div className="flex items-center justify-between px-2">
-        <h2>최근 포스트</h2>
-        <Link href="/posts">더보기</Link>
+      <div className="flex items-center justify-between px-2 mb-4">
+        <h2 className='text-2xl font-bold text-[--color-primary]'>최근 포스트</h2>
+        <Link className='text-normal font-bold text-[--color-primary]' href="/posts">더보기</Link>
       </div>
       <div className="flex flex-wrap gap-x-8 gap-y-16">
         {recentPosts.map((post, idx) => (
