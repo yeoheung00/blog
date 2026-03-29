@@ -4,6 +4,7 @@ import PostTitle from '@/components/PostTitle';
 import { getPost } from '@/libs/posts';
 import { notFound } from 'next/navigation';
 import { PostMeta } from '@/libs/posts';
+import PostComment from '@/components/PostComment';
 
 export default async function Page({ params }: { params: Promise<{ category: string; post: string }> }) {
   const { category, post } = await params;
@@ -15,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ category: str
     <div className='flex-row max-w-2xl w-full'>
       <PostTitle meta={postData.meta}/>
       <PostBody source={postData.content}/>
+      <PostComment/>
     </div>
   );
 }

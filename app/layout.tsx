@@ -4,9 +4,10 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const gothicA1 = Gothic_A1({variable: "--font-gothic-a1", weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]});
-const geistMono = Geist_Mono({  variable: "--font-geist-mono",  subsets: ["latin"]});
+const gothicA1 = Gothic_A1({ variable: "--font-gothic-a1", weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MinK Studio",
@@ -27,6 +28,7 @@ export default function RootLayout({
           attribute="class">
           <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
