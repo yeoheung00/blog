@@ -9,7 +9,7 @@ export default async function CategoryNav({ current }: { current: string }) {
 
       <Link
         href="/"
-        className={`text-md font-bold text-nowrap ${current == "all_posts" ? "bg-primary border-primary" : "border-background"} hover:border-foreground border p-2 rounded-lg`}
+        className={`text-sm font-bold text-nowrap ${current == "all_posts" ? "bg-primary border-primary" : "border-background"} hover:border-foreground border p-2 rounded-lg`}
       >
         All Posts
       </Link>
@@ -18,7 +18,7 @@ export default async function CategoryNav({ current }: { current: string }) {
         <Link
           key={category}
           href={`/${category}`}
-          className={`text-md font-bold text-nowrap ${current == category ? "bg-primary border-primary" : "border-background"} hover:border-foreground border p-2 rounded-lg`}
+          className={`text-sm font-bold text-nowrap ${current == category ? "bg-primary border-primary" : "border-background"} hover:border-foreground border p-2 rounded-lg`}
         >
           {formatSlug(category)}
         </Link>

@@ -7,7 +7,7 @@ export default function ScrollProgressBar() {
     const { scrollYProgress } = useScroll();
 
     return (
-        <div className="sticky top-[63px] left-0 right-0 w-full h-[1px] z-[60] showup">
+        <div className="sticky top-[39px] left-0 right-0 w-full h-[1px] z-[60] showup">
             <div className='absolute top-[0.5px] left-0 w-full h-[1px] bg-border'/>
             <motion.div
                 className='absolute top-0 left-0 origin-left bg-foreground w-full h-[2px] z-60'
