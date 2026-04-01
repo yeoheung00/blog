@@ -10,7 +10,7 @@ export default function PostItem({ post }: { post: Post }) {
     console.log(thumbnail);
     return (
         <Link
-            className="w-full p-2 rounded-xl border border-background hover:border-foreground"
+            className="w-full p-2 rounded-xl border border-background hover:border-foreground showup"
             href={`/${post.category}/${post.slug}`}
         >
             <div className="w-full">

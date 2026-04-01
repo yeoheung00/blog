@@ -10,7 +10,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="w-full py-12 px-6 mt-20">
+        <footer className="w-full py-12 px-6 mt-8">
             <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                 
                 {/* 왼쪽: 브랜드 및 저작권 */}
