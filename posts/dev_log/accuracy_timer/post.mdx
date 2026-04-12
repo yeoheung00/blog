@@ -1,0 +1,52 @@
+---
+title: 정확한 타이머 만들기
+date: 2026-04-12T12:08:00+09:00
+description: 밀리초까지 정확?한 타이머 만들기
+---
+
+## 정확한 타이머라니?
+이전에 지뢰찾기를 제작하면서 게임 플레이 타임을 측정하기 위해 아래와 같은 형식으로 타이머를 만들었었다.
+
+```js
+let timer = 0;
+
+function timerFunc(){
+    setTimeout(()=>{
+        timer++;
+        console.log("timer: ", timer);
+        timerFunc();
+    }, 1000);
+}
+
+timerFunc();
+```
+그런데 저런식으로 만들면 엄청 큰 오차는 아니지만 코드가 실행되는 시간이 있기에 1000밀리초를 사아아알짝 넘긴다는 내용의 글을 봤다. 실제로 `Date.now()`로 호출 당시 시간을 찍어보니 1002ms정도로 오차가 생겼다. 단순 시간만 표시해주는데도 2ms의 오차가 나는데 중간에 시간 값을 가공하고 표시할 dom에 표시해주는 등 여러 프로세스가 추가되면 오차는 더 커질 것이다.
+
+![](dev_log/accuracy_timer/first.png)
+
+그럼 이를 어떻게 해결할 수 있을까?
+## 늦은만큼 다음 타임아웃을 빨리 호출하면 되지 않나?
+정말 단순한생각이지만 내가 1000ms후에 호출을 했지만 실행되기까지 1050ms가 소요 됐다면 다음 호출을 950뒤에 부르면 총 2000ms로 정확한 시간이 측정되지 않을까?
+```js
+let startTime; //시작 기준시
+let expectedTime; //정확히 n초 뒤 찍혀야하는 시간값
+
+function timerStart() {
+    startTime = Date.now(); //기준시 설정
+    expectedTime = startTime + 1000; //1초 뒤 시간값
+    setTimeout(timerFunc, 1000); //1초 뒤 호출
+}
+
+function timerFunc() {
+    const nowTime = Date.now(); //호출 당시 시간
+    const timeOffset = Date.now() - expectedTime; //정확한 시간값대비 오차 계산
+    expectedTime += 1000; //다음 1초 뒤 시간 기댓값
+    console.log(nowTime);
+    setTimeout(timerFunc, 1000 - timeOffset); //늦은만큼 더 빨리 호출
+}
+```
+결과는... 매우 성공적이었다!
+
+![](dev_log/accuracy_timer/second.png)
+
+1ms정도의 오차가 가끔 있다. 하지만 기존방식은 오차가 지속적으로 누적되어 누적값이 1000ms을 넘으면 시간 초가 틀려버릴 수 있는 반면 위 방법으로는 오차를 그때그때 삭제해서 기준시로부터 1~2ms정도 오차는 있을 수 있지만 초단위로 오차가 생기지는 않을 것이다. 이를 지뢰찾기에도 적용하여 더욱 정확한 플레이타임을 측정할 수 있게 했다.
