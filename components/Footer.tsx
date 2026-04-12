@@ -5,7 +5,6 @@ export default function Footer() {
     const snsLinks = [
         { name: 'Github', href: 'https://github.com/yeoheung00' },
         { name: 'Instagram', href: 'https://instagram.com/min.k.333' },
-        { name: 'Kakao', href: 'https://open.kakao.com/...' },
         { name: 'Mail', href: 'mailto:yeoheung27@gmail.com' },
     ];
 

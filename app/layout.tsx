@@ -9,9 +9,34 @@ import Footer from "@/components/Footer";
 const gothicA1 = Gothic_A1({ variable: "--font-gothic-a1", weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
-  title: "MinK Studio",
-  description: "MinK's private studio.",
+  title: {
+    default: "MinK Studio",
+    template: "%s | MinK Studio",
+  },
+  description: "나만의 디지털 공방",
+  keywords: ["Next.js", "Web Development", "3D Modeling", "Blender", "Visual Design", "HTML", "Javascript", "Css", "MinK Studio"],
+  authors: [{ name: "Min.K" }],
+  openGraph: {
+    title: "MinK Studio",
+    description: "나만의 디지털 공방, MinK Studio입니다.",
+    url: "https://mink-stud.io",
+    siteName: "MinK Studio",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MinK Studio",
+    description: "나만의 디지털 공방, MinK Studio입니다.",
+  },
+  verification: {
+    google: "SMjXdCiu2PrQ2tRQTdM3RqbKSOmP-u2xjFWTK-FtSYo",
+    other: {
+      "naver-site-verification": "4da5b54f94294ea02ac1c6a1a26d1ec3f0e72b8f",
+    },
+  },
 };
 
 export default function RootLayout({
