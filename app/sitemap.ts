@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
-import { getPostsByCategory } from '@/libs/posts'
+import { getAllPosts } from '@/libs/posts'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    let all_posts = await getPostsByCategory("all_post");
+    let all_posts = await getAllPosts();
     let post_map = all_posts.map((post) => (
         {
             url: `https://mink-stud.io/${post.category}/${post.slug}`,

@@ -15,7 +15,7 @@ export interface Post extends PostMeta {
 
 export async function getPost(category: string, post: string) {
   const filePath = path.join(process.cwd(), 'posts', category, post, 'post.mdx');
-  
+
   // 파일이 없을 경우를 대비한 예외 처리
   if (!fs.existsSync(filePath)) {
     return null;
@@ -30,17 +30,29 @@ export async function getPost(category: string, post: string) {
   };
 }
 
+export async function getAllPosts() {
+  const categories = await getCategories();
+
+  const nestedPosts: Post[][] = await Promise.all(
+    categories.map((item) => getPostsByCategory(item))
+  );
+
+  return nestedPosts
+    .flat()
+    .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
+}
+
 export async function getPostsByCategory(category: string) {
   const categoryPath = path.join(process.cwd(), 'posts', category);
 
 
   if (category === "all_posts") {
     const categories = await getCategories();
-    
-    const nestedPosts:Post[][] = await Promise.all(
+
+    const nestedPosts: Post[][] = await Promise.all(
       categories.map((item) => getPostsByCategory(item))
     );
-    
+
     return nestedPosts
       .flat()
       .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
@@ -51,11 +63,11 @@ export async function getPostsByCategory(category: string) {
   const posts = postFolders
     .map((postSlug) => {
       const filePath = path.join(categoryPath, postSlug, 'post.mdx');
-      
+
       if (fs.existsSync(filePath)) {
         const source = fs.readFileSync(filePath, 'utf8');
         const { data } = matter(source);
-        
+
         return {
           ...data as PostMeta,
           slug: postSlug,
@@ -82,7 +94,7 @@ export async function getCategories() {
 
   // 폴더 내의 항목 중 '디렉토리'인 것만 골라내기
   const folders = fs.readdirSync(postsPath, { withFileTypes: true });
-  
+
   const categories = folders
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
