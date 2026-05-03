@@ -11,11 +11,9 @@ description: 밀리초까지 정확?한 타이머 만들기
 let timer = 0;
 
 function timerFunc(){
-    setTimeout(()=>{
-        timer++;
-        console.log("timer: ", timer);
-        timerFunc();
-    }, 1000);
+    console.log("Time: ", Date.now());
+    timer++;
+    setTimeout(timerFunc, 1000);
 }
 
 timerFunc();
@@ -28,22 +26,23 @@ timerFunc();
 ## 늦은만큼 다음 타임아웃을 빨리 호출하면 되지 않나?
 정말 단순한생각이지만 내가 1000ms후에 호출을 했지만 실행되기까지 1050ms가 소요 됐다면 다음 호출을 950뒤에 부르면 총 2000ms로 정확한 시간이 측정되지 않을까?
 ```js
-let startTime; //시작 기준시
-let expectedTime; //정확히 n초 뒤 찍혀야하는 시간값
+let expectedTime; //정확히 우리가 원하는 기준시
+let timer = 0;
 
 function timerStart() {
-    startTime = Date.now(); //기준시 설정
-    expectedTime = startTime + 1000; //1초 뒤 시간값
-    setTimeout(timerFunc, 1000); //1초 뒤 호출
+    expectedTime = Date.now() //우리가 기대하는 기준시
+    timerFunc();
 }
 
 function timerFunc() {
-    const nowTime = Date.now(); //호출 당시 시간
-    const timeOffset = Date.now() - expectedTime; //정확한 시간값대비 오차 계산
-    expectedTime += 1000; //다음 1초 뒤 시간 기댓값
-    console.log(nowTime);
-    setTimeout(timerFunc, 1000 - timeOffset); //늦은만큼 더 빨리 호출
+    console.log(timer);
+    const timeOffset = Date.now() - expectedTime; //우리가 원한 기준시보다 몇 밀리초 느린지 계산
+    expectedTime += 1000; //다음 1초 뒤 기준시
+    timer++;
+    setTimeout(timerFunc, 1000 - timeOffset); //기준시부다 늦은만큼 더 빨리 호출
 }
+
+timerStart();
 ```
 결과는... 매우 성공적이었다!
 
