@@ -5,85 +5,177 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f0eee2;
-  --foreground: #2e2e2e;
-  --border: #c2c2c2;
-  --primary: #00D2FF;
-  color-scheme: light;
+
+    --primary: #549696;
+    --on-primary: #ffffff;
+    --primary-container: #235152;
+    --on-primary-container: #235152;
+    --primary-fixed: #b3fdfd;
+    --primary-fixed-dim: #98e0e0;
+    --on-primary-fixed: #0a3e42;
+    --on-primary-fixed-variant: #2f6667;
+    --secondary: #545c96;
+    --on-secondary: #ffffff;
+    --secondary-container: #ced1e6;
+    --on-secondary-container: #232952;
+    --secondary-fixed: #b3bcfd;
+    --secondary-fixed-dim: #98a0e0;
+    --on-secondary-fixed: #0a1142;
+    --on-secondary-fixed-variant: #2f3667;
+    --surface-dim: #d9d8e0;
+    --surface: #f9f7ff;
+    --surface-brightest: #f9f7ff;
+    --surface-container: #edecf4;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f3f2fa;
+    --surface-container-high: #e7e6ee;
+    --surface-container-highest: #e0e0e9;
+    --on-surface: #1b1c20;
+    --on-surface-variant: #45474e;
+    --outline: #75777f;
+    --outline-variant: #c4c5cf;
+    --shadow: #000000;
+
+    color-scheme: light;
 }
 
 .dark {
-  --background: #2c2c2a;
-  --foreground: #d8d8d8;
-  --border: #474747;
-  --primary: #00b6df;
-  color-scheme: dark;
+
+    --primary: #abebeb;
+    --on-primary: #235152;
+    --primary-container: #52a3a3;
+    --on-primary-container: #e3f3f3;
+    --primary-fixed: #b3fdfd;
+    --primary-fixed-dim: #98e0e0;
+    --on-primary-fixed: #0a3e42;
+    --on-primary-fixed-variant: #2f6667;
+    --secondary: #ced1e6;
+    --on-secondary: #232952;
+    --secondary-container: #36384D;
+    --on-secondary-container: #ced1e6;
+    --secondary-fixed: #b3bcfd;
+    --secondary-fixed-dim: #98a0e0;
+    --on-secondary-fixed: #0a1142;
+    --on-secondary-fixed-variant: #2f3667;
+    --surface-dim: #282829;
+    --surface: #282829;
+    --surface-brightest: #4b4b4d;
+    --surface-container: #3b3b3d;
+    --surface-container-lowest: #000000;
+    --surface-container-low: #2d2c2e;
+    --surface-container-high: #434345;
+    --surface-container-highest: #4a4a4d;
+    --on-surface: #e9ecf5;
+    --on-surface-variant: #c6cbda;
+    --outline: #92949e;
+    --outline-variant: #75777e;
+    --shadow: #000000;
+    color-scheme: dark;
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-border: var(--border);
-  --color-primary: var(--primary);
-  --typography-body: var(--foreground);
-  --typography-headings: var(--foreground);
+    --color-primary: var(--primary);
+    --color-on-primary: var(--on-primary);
+    --color-primary-container: var(--primary-container);
+    --color-on-primary-container: var(--on-primary-container);
+    --color-primary-fixed: var(--primary-fixed);
+    --color-primary-fixed-dim: var(--primary-fixed-dim);
+    --color-on-primary-fixed: var(--on-primary-fixed);
+    --color-on-primary-fixed-variant: var(--on-primary-fixed-variant);
+    --color-secondary: var(--secondary);
+    --color-on-secondary: var(--on-secondary);
+    --color-secondary-container: var(--secondary-container);
+    --color-on-secondary-container: var(--on-secondary-container);
+    --color-secondary-fixed: var(--secondary-fixed);
+    --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+    --color-on-secondary-fixed: var(--on-secondary-fixed);
+    --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+    --color-surface-dim: var(--surface-dim);
+    --color-surface: var(--surface);
+    --color-surface-brightest: var(--surface-brightest);
+    --color-surface-container: var(--surface-container);
+    --color-surface-container-lowest: var(--surface-container-lowest);
+    --color-surface-container-low: var(--surface-container-low);
+    --color-surface-container-high: var(--surface-container-high);
+    --color-surface-container-highest: var(--surface-container-highest);
+    --color-on-surface: var(--on-surface);
+    --color-on-surface-variant: var(--on-surface-variant);
+    --color-outline: var(--outline);
+    --color-outline-variant: var(--outline-variant);
+    --color-shadow: var(--shadow);
+
+
+    --typography-body: var(--foreground);
+    --typography-headings: var(--foreground);
+    --text-large: 20px;
+    --text-medium: 16px;
+    --text-small: 12px;
+    --font-weight-large: 500;
+    --font-weight-medium: 300;
+    --font-weight-small: 100;
+
+
+    --breakpoint-xs: 30rem;
 }
 
 @layer base {
-  * {
-    transition: all 0.3s ease;
-    font-family: var(--font-gothic-a1);
-  }
+    * {
+        transition: all 0.3s ease;
+        font-family: var(--font-gothic-a1);
+    }
 
-  .showup{
-    animation-duration: 0.5s;
-    animation-name: show;
-  }
+    .showup {
+        animation-duration: 0.5s;
+        animation-name: show;
+    }
 
-  .prose pre {
-    background-color: var(--shiki-light-bg) !important;
-  }
-  html.dark .prose pre {
-    background-color: var(--shiki-dark-bg) !important;
-  }
-  code,
-  code span {
-    color: var(--shiki-light) !important;
-    background-color: var(--shiki-light-bg) !important;
-    font-style: var(--shiki-light-font-style) !important;
-    font-weight: var(--shiki-light-font-weight) !important;
-    text-decoration: var(--shiki-light-text-decoration) !important;
-    font-family: var(--font-geist-mono);
-  }
+    .prose pre {
+        background-color: var(--shiki-light-bg) !important;
+    }
 
-  html.dark code,
-  html.dark code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-    font-family: var(--font-geist-mono);
-  }
+    html.dark .prose pre {
+        background-color: var(--shiki-dark-bg) !important;
+    }
+
+    code,
+    code span {
+        color: var(--shiki-light) !important;
+        background-color: var(--shiki-light-bg) !important;
+        font-style: var(--shiki-light-font-style) !important;
+        font-weight: var(--shiki-light-font-weight) !important;
+        text-decoration: var(--shiki-light-text-decoration) !important;
+        font-family: var(--font-geist-mono);
+    }
+
+    html.dark code,
+    html.dark code span {
+        color: var(--shiki-dark) !important;
+        background-color: var(--shiki-dark-bg) !important;
+        font-style: var(--shiki-dark-font-style) !important;
+        font-weight: var(--shiki-dark-font-weight) !important;
+        text-decoration: var(--shiki-dark-text-decoration) !important;
+        font-family: var(--font-geist-mono);
+    }
 
 }
 
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 @keyframes show {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }

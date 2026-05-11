@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let all_posts = await getAllPosts();
     let post_map = all_posts.map((post) => (
         {
-            url: `https://mink-stud.io/${post.category}/${post.slug}`,
+            url: `https://mink-stud.io/blog/${post.category}/${post.slug}`,
             lastModified: post.date,
             priority: 0.6,
         }
