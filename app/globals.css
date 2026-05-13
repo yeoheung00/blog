@@ -179,15 +179,3 @@
         opacity: 1;
     }
 }
-
-@media (hover: none) {
-
-    /* Tailwind의 모든 hover: 제어자가 붙은 속성을 초기화 */
-    *[class*="hover:"] {
-        transition: none !important;
-        transform: none !important;
-        filter: none !important;
-        box-shadow: none !important;
-        /* 필요한 다른 속성들이 있다면 추가하거나, 그냥 브라우저 기본 호버를 차단 */
-    }
-}

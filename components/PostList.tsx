@@ -22,7 +22,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
     return (
         <div className="w-full">
 
-            {tagList.length === 1 ? <></> : <nav className="overflow-x-scroll no-scrollbar flex flex-row gap-2 pl-4 pt-4 pr-4">
+            {tagList.length === 1 ? <></> : <nav className="overflow-x-scroll no-scrollbar overflow-y-visible flex flex-row gap-2 pl-4 pt-4 pr-4">
                 {tagList.map(item => (
                     <NavItem key={item} handler={() => setTag(item)} isSelected={tag === item}>{formatSlug(item)}</NavItem>
                 ))
@@ -30,7 +30,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
                 }
             </nav>}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 m-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-4">
                 {postList.map((post) => (
                     <PostItem key={post.slug} post={post} />
                 ))}
@@ -49,7 +49,7 @@ function NavItem({ handler, isSelected, children }: { handler: () => void; isSel
     return (
         <button
             onClick={handler}
-            className={`p-2 text-medium whitespace-nowrap rounded-xl hover:-translate-y-1 active:translate-y-0 active:scale-95 ${isSelected?"bg-on-surface text-surface":"bg-surface-container-high text-on-surface"}`}>
+            className={`p-2 text-medium whitespace-nowrap rounded-xl active:translate-y-[2px] ${isSelected?"bg-on-surface text-surface":"bg-surface-container-high text-on-surface"}`}>
             {children}
         </button>
     )

@@ -11,7 +11,7 @@ export default function ListSubItem({depth, children, line, target}: {depth: num
     return (
         <Link href={target} className={`w-full h-10 flex flex-rowitems-center pl-2 items-center`}>
             {lines.map((line, index)=>(line(index)))}
-            <span className={`text-large h-full line-full leading-10 rounded-xl px-2 grow-1 hover:translate-x-1 active:translate-x-0 ${isActive?"bg-secondary-container text-on-secondary-container":"text-on-surface"}`}>{children}</span>
+            <span className={`text-large h-full line-full leading-10 rounded-xl px-2 grow-1 ${isActive?"bg-secondary-container text-on-secondary-container":"text-on-surface"}`}>{children}</span>
         </Link>
     )
 }

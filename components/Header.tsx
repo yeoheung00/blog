@@ -7,7 +7,7 @@ export default function Header() {
 
     return (
         <header className="w-full h-14 px-2 flex items-center justify-between bg-surface-high">
-            <Link href="/" className="ml-12 lg:ml-0 hover:-translate-y-1 active:translate-y-0 active:scale-95">
+            <Link href="/" className="ml-12 lg:ml-0">
                 <Logo className="text-primary h-10" />
             </Link>
             <div className="flex items-center gap-3">

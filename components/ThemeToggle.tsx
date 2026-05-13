@@ -21,7 +21,7 @@ export function ThemeToggle() {
         <div className="relative w-10 h-10">
             <button
                 onClick={() => setOpen(!open)}
-                className="relative w-10 h-10 hover:-translate-y-1 active:translate-y-0 active:scale-95"
+                className="relative w-10 h-10"
             >
                 <IcLight className="absolute h-6 w-6 top-2 left-2 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <IcDark className="absolute h-6 w-6 top-2 left-2 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
