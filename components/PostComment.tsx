@@ -1,7 +1,7 @@
 "use client";
 import Giscus from "@giscus/react";
 import { useTheme } from "next-themes";
-import { useEffect, useState, startTransition } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr"; // SWR 임포트
 
 interface Comment {
@@ -24,7 +24,7 @@ export default function PostComment({ postSlug }: { postSlug: string }) {
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     if (!author || !password || !content)
       return alert("모든 필드를 입력해주세요.");
@@ -125,7 +125,7 @@ export default function PostComment({ postSlug }: { postSlug: string }) {
               첫 댓글을 남겨보세요!
             </p>
           ) : (
-            comments.map((comment) => (
+            comments.map((comment: Comment) => (
               <div
                 key={comment.id}
                 className="rounded-xl bg-gray-50 p-4 dark:bg-gray-900/50"
